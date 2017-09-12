@@ -1,4 +1,4 @@
-##"Umami" - a retail sales site for artisanal salt
+## "Umami" - a retail sales site for artisanal salt
 
 #### Built in Rails 5.1 with PostgreSQL 9.6.5, testing with RSpec.
 
