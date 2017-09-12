@@ -4,7 +4,7 @@ FactoryGirl.define do
     stock_level rand(0..10)
     image "http://i0.kym-cdn.com/photos/images/facebook/000/918/952/d5a.png"
     sequence :name do |i|
-      name "Sel"
+      name "Sel#{i}"
     end
     description "insert lorem here"
   end
