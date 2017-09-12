@@ -10,12 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170912224632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "item_tags", force: :cascade do |t|
     t.bigint "tag_id"
@@ -36,7 +34,6 @@ ActiveRecord::Schema.define(version: 20170912224632) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -45,5 +42,4 @@ ActiveRecord::Schema.define(version: 20170912224632) do
 
   add_foreign_key "item_tags", "items"
   add_foreign_key "item_tags", "tags"
-
 end
