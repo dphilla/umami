@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :tag do
-    name "MyString"
+    sequence :name do |i|
+      "TibetanleS#{i}"
+    end
   end
 end
