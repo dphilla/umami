@@ -44,6 +44,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'pry-rails'
   gem 'literate_randomizer'
+  gem 'launchy'
 end
 
 group :development do

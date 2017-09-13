@@ -4,5 +4,7 @@ Rails.application.routes.draw do
  resources :items
  resources :tags, only: [:index, :show]
 
+ get "/cart" => "carts#show"
+ post "/cart" => "carts#create"
  get "/:name" => "tags#show"
 end
