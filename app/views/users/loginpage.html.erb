@@ -1,11 +1,11 @@
 <%= form_for(:user, url: login_path, method: :post) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <a><%= f.label :name %></a>
+  <a><%= f.text_field :name %></a>
 
-  <%= f.label :password %>
-  <%= f.text_field :password %>
+  <a><%= f.label :password %></a>
+  <a><%= f.text_field :password %></a>
 
-  <%= f.submit("Log in") %>
+  <a class="waves-effect waves-teal btn-flat"><%= f.submit("Log in") %></a>
 <% end %>
 
-<%= link_to "Create Account", new_user_path %>
+<a><%= link_to "Create Account", new_user_path %></a>

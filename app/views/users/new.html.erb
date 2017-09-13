@@ -1,15 +1,15 @@
 <%= form_for(@user) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <a><%= f.label :name %></a>
+  <a><%= f.text_field :name %></a>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  <a><%= f.label :email %></a>
+  <a><%= f.text_field :email %></a>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %>
+  <a><%= f.label :address %></a>
+  <a><%= f.text_field :address %></a>
 
-  <%= f.label :password %>
-  <%= f.text_field :password %>
+  <a><%= f.label :password %></a>
+  <a><%= f.text_field :password %></a>
 
-  <%= f.submit("Create Account") %>
+  <a class="waves-effect waves-teal btn-flat"><%= f.submit("Create Account") %></a>
 <% end %>
