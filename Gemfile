@@ -43,6 +43,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'pry-rails'
+  gem 'literate_randomizer'
 end
 
 group :development do
