@@ -3,6 +3,7 @@ Rails.application.routes.draw do
  root "items#index"
  resources :items
  resources :tags, only: [:index, :show]
+ resources :users, only: [:new, :create]
 
  get "/dashboard" => "users#dashboard"
  get "/login" => "users#loginpage"
