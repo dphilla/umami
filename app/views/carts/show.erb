@@ -1,0 +1,29 @@
+<h4>Your Cart</h4>
+
+<table class="striped">
+  <thead>
+    <tr>
+      <th>Item Name</th>
+      <th>Item Description</th>
+      <th>Item Image</th>
+      <th>Item Quantity</th>
+      <th>Item Price</th>
+    </tr>
+  </thead>
+  <%= @items.each do |item| %>
+  <tbody>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= truncate(item.description) %></td>
+      <td><%= image_tag item.image %></td>
+      <td><%= @cart.count_of(item.id) %></td>
+      <td><%= item.price %></td>
+    </tr>
+  </tbody>
+  <% end %>
+  <tbody>
+    <tr>
+      <td>Order Total: <%= @cart.total_cost %></td>
+    </tr>
+  </tbody>
+</table>
