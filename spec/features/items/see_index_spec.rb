@@ -4,9 +4,9 @@ require 'rails_helper'
 feature "As an unathenticated user" do
   scenario "sees all items" do
 
-  Item.create(name: "Tablesalt", description: "its good", price: 1, stock_level: 1000, image: "google.com")
-  Item.create(name: "Tablesalt", description: "its good", price: 1, stock_level: 1000, image: "google.com")
-  Item.create(name: "Tablesalt", description: "its good", price: 1, stock_level: 1000, image: "google.com")
+  3.times do
+    create(:item)
+  end
 
   visit items_path
 
@@ -14,4 +14,3 @@ feature "As an unathenticated user" do
 
   end
 end
-
