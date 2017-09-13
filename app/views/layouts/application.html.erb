@@ -12,10 +12,7 @@
 
   <body>
     <main>
-    <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-    <% end %>
-    </ul>
+
     <nav>
       <div class="nav-wrapper">
         <a class="brand-logo"><%= image_tag 'navlogo.png', height: 60 %></a>
@@ -31,6 +28,12 @@
         </ul>
       </div>
     </nav>
+
+    <div>
+      <% flash.each do |name, msg| %>
+        <div class="transparent-white"><%= content_tag :div, msg, class: name %></div>
+      <% end %>
+    </div>
 
     <div class="row">
       <div class="col m1">
