@@ -54,3 +54,19 @@ nav {
 #show-card {
   background: rgba(252,255,244,0.8)
 }
+
+#cart {
+  font-size: 36px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: white;
+  line-height: 20px;
+  text-shadow: 0.4px 0.4px black;
+  text-align: center;
+  background: red;
+}

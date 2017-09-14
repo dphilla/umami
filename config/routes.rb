@@ -11,6 +11,7 @@ Rails.application.routes.draw do
  post "/login" => "users#login"
  get "/cart" => "carts#show"
  post "/cart" => "carts#create"
+ patch "/cart" => "carts#update"
  delete "/cart" => "carts#destroy"
  get "/:name" => "tags#show"
 end

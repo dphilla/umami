@@ -19,9 +19,9 @@
       <td><%= image_tag item.image, width: '75px' %></td>
       <td><%= link_to item.name, item_path(item) %></td>
       <td><%= truncate(item.description) %></td>
-      <td><%= @cart.count_of(item.id) %></td>
-      <td><%= item.price %></td>
-      <td><%= @cart.subtotal(item.id) %></td>
+      <td><%= link_to '<i class="material-icons">remove</i>'.html_safe, cart_path(item_id: item.id), method: 'patch' %> <%= @cart.count_of(item.id) %> <%= link_to '<i class="material-icons">add</i>'.html_safe, cart_path(item_id: item.id), method: 'patch' %></td>
+      <td><%= item.to_money %></td>
+      <td><%= number_to_currency(@cart.subtotal(item.id) / 100) %></td>
     </tr>
   </tbody>
   <% end %>
