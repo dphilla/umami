@@ -22,7 +22,7 @@
       <td><%= image_tag item.image, width: '75px' %></td>
       <td><%= link_to item.name, item_path(item) %></td>
       <td><%= truncate(item.description) %></td>
-      <td><%= link_to '<i class="material-icons">remove</i>'.html_safe, cart_path(item_id: item.id), method: 'patch' %> <%= @cart.count_of(item.id) %> <%= link_to '<i class="material-icons">add</i>'.html_safe, cart_path(item_id: item.id), method: 'patch' %></td>
+      <td><%= link_to '<i class="material-icons">remove</i>'.html_safe, cart_path(@cart, button: {item_id: item.id, do: "subtract"}), method: 'patch' %> <%= @cart.count_of(item.id) %> <%= link_to '<i class="material-icons">add</i>'.html_safe, cart_path(@cart, button: {item_id: item.id, do: "add"}), method: 'patch' %></td>
       <td><%= item.to_money %></td>
       <td><%= @cart.subtotal(item.id) %></td>
     </tr>

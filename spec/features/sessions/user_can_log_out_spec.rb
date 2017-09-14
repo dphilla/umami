@@ -9,8 +9,10 @@ RSpec.feature "user can log out" do
     fill_in "user[name]", with: user.name
     fill_in "user[password]", with: "Password"
     click_on("Log in")
-
-    click_on("Logout")
+    
+    within(:css, "#nav-mobile") do
+      click_on("Logout")
+    end
 
     expect(current_path).to eq(root_path)
     expect(page).to have_content("Login")
