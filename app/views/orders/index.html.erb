@@ -1,0 +1,7 @@
+<h1>Orders for <%= current_user.name %>:</h1>
+
+<ul>
+<% @orders.each do |order| %>
+  <li><a><%= order.created_at %></a></li>
+<% end %>
+</ul>
