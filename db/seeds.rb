@@ -14,3 +14,19 @@ items.each do |row|
   row = row.to_h
   Item.create!(row)
 end
+
+
+Item.all.each do
+
+#tags
+  #Infused
+  #Black
+  #Red
+  #Pink
+  #Flake
+  #Coarse
+  #Fine
+  #accessory
+
+
+
