@@ -7,7 +7,7 @@ FactoryGirl.define do
       "Me@#{i}"
     end
     address "MyString"
-    role 1
+    role 0
     password "Password"
   end
 end
