@@ -5,7 +5,7 @@ feature "Visitor adds items to cart" do
 
       visit items_path
 
-      first(:link, "Add to Cart").click
+      click_on("add_shopping_cart")
 
       click_on("shopping_cart")
 

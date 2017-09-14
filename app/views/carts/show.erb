@@ -1,6 +1,9 @@
 <h4>Your Cart</h4>
 
-<table class="striped">
+<div class="row">
+ <div class="col s12 m12">
+   <div class="card-panel transparent-white">
+<table class="bordered centered">
   <thead>
     <tr>
       <th></th>
@@ -19,15 +22,24 @@
       <td><%= image_tag item.image, width: '75px' %></td>
       <td><%= link_to item.name, item_path(item) %></td>
       <td><%= truncate(item.description) %></td>
-      <td><%= @cart.count_of(item.id) %></td>
-      <td><%= item.price %></td>
+      <td><%= link_to '<i class="material-icons">remove</i>'.html_safe, cart_path(item_id: item.id), method: 'patch' %> <%= @cart.count_of(item.id) %> <%= link_to '<i class="material-icons">add</i>'.html_safe, cart_path(item_id: item.id), method: 'patch' %></td>
+      <td><%= item.to_money %></td>
       <td><%= @cart.subtotal(item.id) %></td>
     </tr>
   </tbody>
   <% end %>
   <tbody>
     <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
       <td>Order Total: <%= @cart.total_cost %></td>
     </tr>
   </tbody>
 </table>
+</div>
+</div>
+</div>

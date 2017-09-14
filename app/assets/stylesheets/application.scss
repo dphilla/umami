@@ -39,6 +39,10 @@ nav {
   background-color: rgba(220,220,220, 0.2) !important;
 }
 
+.notice {
+  color: rgb(150, 50, 50);
+}
+
 .transparent-white {
   background-color: rgba(255,255,255, 0.6) !important;
 }
@@ -49,4 +53,20 @@ nav {
 
 #show-card {
   background: rgba(252,255,244,0.8)
+}
+
+#cart {
+  font-size: 36px;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: white;
+  line-height: 20px;
+  text-shadow: 0.4px 0.4px black;
+  text-align: center;
+  background: red;
 }

@@ -2,11 +2,10 @@ feature "As a user visiting the site" do
   context "and clicks on the add to cart button" do
     scenario "the item is added to the cart" do
       item1 = create(:item)
-      item2 = create(:item)
 
       visit items_path
 
-      first(:link, "Add to Cart").click
+      click_on("add_shopping_cart")
 
       expect(page).to have_content("You now have 1 #{item1.name}.")
     end
@@ -18,7 +17,7 @@ feature "As a user visiting the site" do
 
       visit items_path
 
-      first(:link, "Add to Cart").click
+      click_on("add_shopping_cart")
 
       expect(page).to have_content("You now have 1 #{item1.name}.")
 
