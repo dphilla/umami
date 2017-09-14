@@ -1,0 +1,15 @@
+<%= form_for(@user) do |f| %>
+  <a><%= f.label :name %></a>
+  <a><%= f.text_field :name %></a>
+
+  <a><%= f.label :email %></a>
+  <a><%= f.text_field :email %></a>
+
+  <a><%= f.label :address %></a>
+  <a><%= f.text_field :address %></a>
+
+  <a><%= f.label :password %></a>
+  <a><%= f.text_field :password %></a>
+
+  <a class="waves-effect waves-teal btn-flat"><%= f.submit("Create Account") %></a>
+<% end %>

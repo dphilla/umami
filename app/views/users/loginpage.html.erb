@@ -1,0 +1,11 @@
+<%= form_for(:user, url: login_path, method: :post) do |f| %>
+  <a><%= f.label :name %></a>
+  <a><%= f.text_field :name %></a>
+
+  <a><%= f.label :password %></a>
+  <a><%= f.text_field :password %></a>
+
+  <a class="waves-effect waves-teal btn-flat"><%= f.submit("Log in") %></a>
+<% end %>
+
+<a><%= link_to "Create Account", new_user_path %></a>
