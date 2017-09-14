@@ -6,9 +6,9 @@ Rails.application.routes.draw do
  resources :users, only: [:new, :create]
 
  get "/dashboard" => "users#dashboard"
- get "/login" => "users#loginpage"
- delete "/login" => "users#logout"
- post "/login" => "users#login"
+ get "/login" => "sessions#new"
+ delete "/login" => "sessions#destroy"
+ post "/login" => "sessions#create"
  get "/cart" => "carts#show"
  post "/cart" => "carts#create"
  patch "/cart" => "carts#update"
