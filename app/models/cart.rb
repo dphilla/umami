@@ -23,13 +23,14 @@ class Cart
   end
 
   def total_cost
-    contents.reduce(0) do |total, item|
+    total = contents.reduce(0) do |total, item|
       total += Item.find(item[0]).price * count_of(item[0])
     end
+    "$#{Money.new(total, "USD")}"
   end
 
   def subtotal(item_id)
-    Item.find(item_id).price * count_of(item_id)
+    "$#{Money.new(Item.find(item_id).price * count_of(item_id), "USD")}"
   end
 
   def remove_item(item_id)
