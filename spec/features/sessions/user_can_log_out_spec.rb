@@ -9,7 +9,7 @@ RSpec.feature "user can log out" do
     fill_in "user[name]", with: user.name
     fill_in "user[password]", with: "Password"
     click_on("Log in")
-    
+
     within(:css, "#nav-mobile") do
       click_on("Logout")
     end
