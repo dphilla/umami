@@ -34,7 +34,19 @@ class Cart
   end
 
   def remove_item(item_id)
-    contents[item_id.to_s]
+    contents.delete(item_id.to_s)
+  end
+
+  def change_quantity(args_hash)
+    item_id = args_hash[:item_id]
+    if args_hash[:do] == "add"
+      add_item(item_id)
+    else
+      contents[item_id] -= 1
+    end
+    if contents[item_id] == 0
+      remove_item(item_id)
+    end
   end
 
 end
