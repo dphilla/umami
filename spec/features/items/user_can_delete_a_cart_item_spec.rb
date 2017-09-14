@@ -9,11 +9,11 @@ feature "Visitor adds items to cart" do
 
       click_on("shopping_cart")
 
-      expect(page).to have_content(item1.name)
+      expect(page).to have_content(item1.price)
 
       click_on("Remove")
 
-      expect(page).to_not have_content(item1.name)
+      expect(page).to_not have_content(item1.price)
     end
   end
 end
