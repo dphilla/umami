@@ -13,7 +13,6 @@ feature "As a user visiting the site" do
   context "and adds items to the cart" do
     scenario "visits cart and sees items" do
       item1 = create(:item)
-      item2 = (:item)
 
       visit items_path
 
@@ -26,7 +25,7 @@ feature "As a user visiting the site" do
       expect(current_path).to eq('/cart')
 
       expect(page).to have_content(item1.name)
-      expect(page).to have_content(item1.price)
+      expect(page).to have_content(Money.new(item1.price, "USD"))
 
       expect(page).to have_content("Order Total:")
 
