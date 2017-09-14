@@ -1,11 +1,23 @@
-<%= form_for(:user, url: login_path, method: :post) do |f| %>
-  <a><%= f.label :name %></a>
-  <a><%= f.text_field :name %></a>
+<div class="row">
+  <div class="col m3">
 
-  <a><%= f.label :password %></a>
-  <a><%= f.text_field :password %></a>
+  </div>
+  <div class="col s12 m6">
+    <div class="card grey darken-1 large">
+      <div class="card-content white-text">
+        <span class="card-title">Login</span>
+        <%= form_for(:user, url: login_path, method: :post) do |f| %>
+        <a class="form-input"><%= f.label :name %></a>
+        <a class="form-input"><%= f.text_field :name %></a>
 
-  <a class="waves-effect waves-teal btn-flat"><%= f.submit("Log in") %></a>
-<% end %>
+        <a class="form-input"><%= f.label :password %></a>
+        <a class="form-input"><%= f.password_field :password %></a><br><br><br><br><br><br><br><br><br>
 
-<a><%= link_to "Create Account", new_user_path %></a>
+        <a class="waves-effect waves-light btn"><%= f.submit("Log in") %></a>
+        <% end %>
+
+        <a><%= link_to "Create Account", new_user_path %></a>
+      </div>
+    </div>
+  </div>
+</div>
