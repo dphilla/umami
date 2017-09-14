@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+ gem 'money-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,6 +45,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'pry-rails'
   gem 'literate_randomizer'
+  gem 'launchy'
 end
 
 group :development do

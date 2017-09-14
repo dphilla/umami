@@ -9,5 +9,9 @@ Rails.application.routes.draw do
  get "/login" => "users#loginpage"
  delete "/login" => "users#logout"
  post "/login" => "users#login"
+ get "/cart" => "carts#show"
+ post "/cart" => "carts#create"
+ patch "/cart" => "carts#update"
+ delete "/cart" => "carts#destroy"
  get "/:name" => "tags#show"
 end
