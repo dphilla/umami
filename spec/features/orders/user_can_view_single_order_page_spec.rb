@@ -14,7 +14,7 @@ RSpec.feature "user can view single order" do
 
     visit orders_path
     click_on order.created_at
-    save_and_open_page
+
     expect(current_path).to eq(order_path(order))
     expect(page).to have_content(item.name)
     expect(page).to have_content(item.description)
