@@ -6,7 +6,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find_by(name: params[:name])
-    @items = @tag.items
+    #@items = @tag.items
   end
 
 end
