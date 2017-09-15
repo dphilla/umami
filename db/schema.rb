@@ -34,11 +34,22 @@ ActiveRecord::Schema.define(version: 20170914223806) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity"
+    t.index ["item_id"], name: "index_order_items_on_item_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "total_price"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -60,5 +71,7 @@ ActiveRecord::Schema.define(version: 20170914223806) do
 
   add_foreign_key "item_tags", "items"
   add_foreign_key "item_tags", "tags"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
 end

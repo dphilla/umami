@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
 
   helper_method :require_user,
-                :current_user
+                :current_user,
+                :find_quantity
 
   def require_user
     unless current_user
@@ -16,6 +17,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def find_quantity(item, order)
+    @find_order_item = OrderItem.find_by(item: item, order: order).quantity
+  end
 
   def set_cart
     @cart = Cart.new(session[:cart])
