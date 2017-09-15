@@ -31,9 +31,24 @@ end
   Tag.create(name: Faker::Address.unique.country)
  end
 
+ 10.times do
+   User.create(name: Faker::Name.name, address: Faker::Address.street_address, email: Faker::Internet.email, password: "123")
+ end
+
+ user_collection = User.all
+
+ 10.times do
+   Order.create(user_id: user_collection.sample.id)
+ end
+
  tag_collection = Tag.all
  item_collection = Item.all
+ order_collection = Order.all
 
  item_collection.each do |item|
    item.tags << tag_collection.sample(rand(1..5))
+ end
+
+ order_collection.each do |order|
+   order.items << item_collection.sample(rand(1..8))
  end

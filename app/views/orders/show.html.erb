@@ -15,16 +15,16 @@
       <th>Item Total</th>
     </tr>
   </thead>
-  <% @order.items.each do |item| %>
+  <% @order.items.distinct.each do |item| %>
   <tbody>
     <tr>
       <td></td>
       <td><%= image_tag item.image, width: '75px' %></td>
       <td><%= link_to item.name, item_path(item) %></td>
       <td><%= truncate(item.description) %></td>
-      <td><%= find_quantity(item, @order) %></td>
+      <td><%= @order.get_quantity(item.id) %></td>
       <td><%= item.to_money %></td>
-      <td><%= find_quantity(item, @order) * item.price %></td>
+      <td><%= @order.get_item_total(item.id) %></td>
     </tr>
   </tbody>
   <% end %>
