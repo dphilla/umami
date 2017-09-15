@@ -16,7 +16,7 @@
 
  @import "materialize/components/color";
  $primary-color: color("black", "lighten-2") !default;
- $secondary-color: color("slategrey", "base") !default;
+ $secondary-color: color("teal", "darken-4") !default;
  @import 'materialize';
 
  body {
@@ -71,4 +71,15 @@ nav {
 .add-cart {
   margin-top: 10px;
   margin-right: 10px;
+}
+.card {
+  height: auto;
+}
+
+.form-input {
+  color: black;
+}
+
+.message {
+  color: green;
 }

@@ -15,7 +15,7 @@
     <ul id="dropdown1" class="dropdown-content">
       <li><%= link_to "All Items", items_path %></li>
       <% if current_user %>
-        <li><%= link_to "Logout", login_path, method: :delete %></li>
+        <li><%= link_to "Logout", logout_path, method: :delete %></li>
         <li><%= link_to "Orders", orders_path %></li>
       <% else %>
         <li><%= link_to "Login", login_path %></li>
@@ -23,7 +23,7 @@
     </ul>
     <nav>
       <div class="nav-wrapper">
-        <a class="brand-logo"><%= image_tag 'navlogo.png', height: 60 %></a>
+        <a class="brand-logo"><%= link_to image_tag('navlogo.png', height: 60), root_path %></a>
         <a class="btn-floating btn-large waves-effect waves-light right red" id="nav-counter"><%= @cart.total_count %></a><a href="/cart"><i class="material-icons right" id="cart">shopping_cart</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Navigation<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -53,7 +53,7 @@
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <% if current_user %>
-          <%= link_to "Logout", login_path, method: 'delete' %>
+          <%= link_to "Logout", logout_path, method: 'delete' %>
           <% else %>
           <%= link_to "Log In", login_path %>
         <% end %>

@@ -1,6 +1,5 @@
 <div class="row">
   <div class="col m3">
-
   </div>
   <div class="col s12 m6">
     <div class="card grey darken-1 large">
@@ -13,10 +12,10 @@
         <a class="form-input"><%= f.label :password %></a>
         <a class="form-input"><%= f.password_field :password %></a><br><br><br><br><br><br><br>
 
-        <a class="waves-effect waves-light btn"><%= f.submit("Log in") %></a>
+        <a class="waves-effect waves-light btn teal darken-4"><%= f.submit("Log in") %></a>
         <% end %>
-        <p><t/>Or</p>
-        <%= link_to "Create Account", new_user_path, class: "waves-effect waves-light btn" %>
+        <br>
+        <%= link_to "Create Account", new_user_path, class: "waves-effect waves-light btn teal darken-4" %>
       </div>
     </div>
   </div>
