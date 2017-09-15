@@ -10,7 +10,8 @@ class Order < ApplicationRecord
   private
 
   def tally_total
-    self[:total_price] = OrderItem.group(:id).sum(:quantity).values.sum
+    self[:total_price] = OrderItem.where(order_id: :id)
+                          .sum(:quantity)
   end
 
 end

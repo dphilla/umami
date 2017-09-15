@@ -8,14 +8,16 @@ RSpec.feature "user can view single order" do
     fill_in "user[name]", with: user.name
     fill_in "user[password]", with: "Password"
     click_on("Log in")
+    
     order = create(:order, user: user)
     item = create(:item)
     order_item = create(:order_item, order: order, item: item)
-    
-
+    # order_item_2 = create(:order_item, order: order_2, item: item)
     visit orders_path
+    # require "pry"; binding.pry
+    save_and_open_page
     click_on order.created_at
-
+    
     expect(current_path).to eq(order_path(order))
     expect(page).to have_content(item.name)
     expect(page).to have_content(item.description)
