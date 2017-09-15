@@ -9,7 +9,7 @@ feature "Visitor adds items to cart" do
 
       click_on("shopping_cart")
 
-      expect(page).to have_content(item1.price)
+      expect(page).to have_content(Money.new(item1.price, "USD"))
 
       click_on("Remove")
 

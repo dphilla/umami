@@ -15,9 +15,14 @@ class CartsController < ApplicationController
     redirect_to items_path
   end
 
+  def update
+    @cart.change_quantity(params[:button])
+    redirect_to cart_path
+  end
+
   def destroy
     item = Item.find(params[:item_id])
-  
+
     session[:cart].delete(params[:item_id])
 
     flash[:message] = "#{view_context.link_to item.name, item_path(item).html_safe} has been removed from your cart."
