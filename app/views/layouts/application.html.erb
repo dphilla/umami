@@ -3,7 +3,7 @@
   <head>
     <title>Umami</title>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -54,6 +54,8 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <% if current_user %>
           <%= link_to "Logout", login_path, method: 'delete' %>
+          <% else %>
+          <%= link_to "Log In", login_path %>
         <% end %>
       </ul>
     </div>

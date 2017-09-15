@@ -25,14 +25,15 @@ end
  Tag.create(name: "Flake")
  Tag.create(name: "Coarse")
  Tag.create(name: "Fine")
- Tag.create(name: "accessory")
- 
- 
- 
- salt  = Tag.create(name: "salt")
- 
+ Tag.create(name: "accessories")
+ Tag.create(name: "salt")
+ 20.times do
+  Tag.create(name: Faker::Address.unique.country)
+ end
+
+ tag_collection = Tag.all
  item_collection = Item.all
- 
+
  item_collection.each do |item|
-   item.tags << salt
+   item.tags << tag_collection.sample(rand(1..5))
  end
