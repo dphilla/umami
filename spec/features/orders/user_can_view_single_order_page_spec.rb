@@ -11,6 +11,7 @@ RSpec.feature "user can view single order" do
     order = create(:order, user: user)
     item = create(:item)
     order_item = create(:order_item, order: order, item: item)
+    
 
     visit orders_path
     click_on order.created_at
