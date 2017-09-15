@@ -4,12 +4,12 @@ Rails.application.routes.draw do
  resources :items
  resources :tags, only: [:index, :show]
  resources :users, only: [:new, :create]
- resources :orders, only: [:index, :show]
+ resources :orders, only: [:index, :show, :create]
 
  get "/dashboard" => "users#dashboard"
  get "/login" => "sessions#new"
- delete "/login" => "sessions#destroy"
  post "/login" => "sessions#create"
+ delete "/logout" => "sessions#destroy"
  get "/cart" => "carts#show"
  post "/cart" => "carts#create"
  patch "/cart" => "carts#update"

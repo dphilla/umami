@@ -35,7 +35,11 @@
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
+      <td> <% if current_user %>
+              <%#= link_to 'Checkout', some_path(@cart, current_user) %>
+            <% else %>
+              <%= link_to 'Login or Create Account to Checkout', login_path %>
+            <% end %></td>
       <td>Order Total: <%= @cart.total_cost %></td>
     </tr>
   </tbody>

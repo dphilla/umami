@@ -1,16 +1,17 @@
-<h4>Our Selection of <%= @tag.name.capitalize %></h4>
+<h4>Our Selection of items with the tag <strong><%= @tag.name.capitalize %></strong></h4>
 <div class="row">
   <% @tag.items.each do |item| %>
-  <div class="col m3">
-    <div class="card small" id="show-card">
+  <div class="col m4">
+    <div class="card sticky-action medium" id="show-card">
       <div class="card-image waves-effect waves-block waves-light">
         <%= image_tag item.image, class: "activator", id: "card-image" %>
       </div>
+        <%= link_to '<i class="material-icons" >add_shopping_cart</i>'.html_safe, cart_path(item_id: item.id), class: "btn-floating fab waves-effect waves-light right red add-cart", method: 'post' %>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"><%= link_to item.name.capitalize, item_path(item) %><i class="material-icons right">more_vert</i></span>
+        <span class="card-title activator grey-text text-darken-4"><%= link_to item.name.capitalize, item_path(item) %><br><%= item.to_money %></span>
       </div>
       <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+        <span class="card-title grey-text text-darken-4"><%= item.name %><i class="material-icons right">close</i></span>
         <p><%= item.description %></p>
       </div>
     </div>
