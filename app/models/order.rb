@@ -5,12 +5,13 @@ class Order < ApplicationRecord
 
   enum status: [:ordered, :paid, :cancelled, :completed]
 
-  before_create :tally_total
+  before_save :tally_total
 
   private
 
   def tally_total
-    # self.total_price = 
+    self[:total_price] = OrderItem.where(order_id: :id)
+                          .sum(:quantity)
   end
 
 end
