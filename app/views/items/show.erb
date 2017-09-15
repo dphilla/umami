@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col m1">
+
+  </div>
+  <div class="col m10">
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag @item.image %>
+        <span class="card-title"><%= @item.name %></span>
+        <%= link_to '<i class="material-icons">add_shopping_cart</i>'.html_safe, cart_path(item_id: @item.id), class: "btn-floating halfway-fab waves-effect waves-light top red", method: 'post' %>
+      </div>
+      <div class="card-content">
+        <p><%= @item.description %></p>
+        <p><%= @item.status %></p>
+      </div>
+    </div>
+  </div>
+</div>
