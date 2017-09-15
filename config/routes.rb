@@ -4,6 +4,7 @@ Rails.application.routes.draw do
  resources :items
  resources :tags, only: [:index, :show]
  resources :users, only: [:new, :create]
+ resources :orders, only: [:index, :show]
 
  get "/dashboard" => "users#dashboard"
  get "/login" => "sessions#new"

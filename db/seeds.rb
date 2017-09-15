@@ -12,5 +12,6 @@ items = CSV.foreach "./db/items.csv", headers: true, header_converters: :symbol
 
 items.each do |row|
   row = row.to_h
+  row[:status] = row[:status].to_i
   Item.create!(row)
 end

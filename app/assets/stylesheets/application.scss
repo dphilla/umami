@@ -59,14 +59,16 @@ nav {
   font-size: 36px;
 }
 
-.circle {
-  width: 20px;
+#nav-counter {
+  margin-top: 15px;
+  margin-right: 5px;
   height: 20px;
-  border-radius: 50%;
-  font-size: 15px;
-  color: white;
-  line-height: 20px;
-  text-shadow: 0.4px 0.4px black;
+  width: 20px;
   text-align: center;
-  background: red;
+  line-height: 21px;
+}
+
+.add-cart {
+  margin-top: 10px;
+  margin-right: 10px;
 }
