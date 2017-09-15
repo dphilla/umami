@@ -9,7 +9,7 @@
         <% end %>
         <ul>
           <% @orders.each do |order| %>
-            <li><a><%= order.created_at %></a></li>
+            <li><a><%= link_to order.created_at, order_path(order) %></a></li>
           <% end %>
         </ul>
       </div>

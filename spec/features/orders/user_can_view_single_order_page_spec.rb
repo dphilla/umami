@@ -9,7 +9,8 @@ RSpec.feature "user can view single order" do
     fill_in "user[password]", with: "Password"
     click_on("Log in")
     order = create(:order, user: user)
-    item1 = order.items.create(:item)
+    item = create(:item)
+    order_item = create(:order_item, order: order, item: item)
 
     visit orders_path
     click_on order.created_at
