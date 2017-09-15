@@ -24,7 +24,7 @@
       <td><%= truncate(item.description) %></td>
       <td><%= find_quantity(item, @order) %></td>
       <td><%= item.to_money %></td>
-      <td><%= @cart.subtotal(item.id) %></td>
+      <td><%= find_quantity(item, @order) * item.price %></td>
     </tr>
   </tbody>
   <% end %>
@@ -34,9 +34,9 @@
       <td></td>
       <td></td>
       <td></td>
+      <td>Order Status: <%= @order.status %></td>
       <td></td>
-      <td></td>
-      <td>Order Total: <%= @cart.total_cost %></td>
+      <td>Order Total: <%= @order.total_price %></td>
     </tr>
   </tbody>
 </table>
