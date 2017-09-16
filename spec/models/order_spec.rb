@@ -42,8 +42,29 @@ RSpec.describe Order, type: :model do
     it '#total_price' do
       user = create(:user)
       order = create(:order, user: user)
+      item_list = create_list(:item, 3)
       
-      expect(order.total_price).to eq('$0.00')
+      order.items << item_list
+      expect(order.total_price).to eq('$0.15')
     end
+    
+    it '#get_quantity' do
+      user = create(:user)
+      order = create(:order, user: user)
+      item_list = create_list(:item, 5)
+      order.items << item_list
+
+      expect(order.get_quantity(order.id)).to eq(1)
+    end
+    
+    it '#get_item_total' do
+      user = create(:user)
+      order = create(:order, user: user)
+      item_list = create_list(:item, 5)
+      order.items << item_list
+
+      expect(order.get_item_total(order.items.first.id)).to eq('$0.05')
+    end
+
   end
 end
