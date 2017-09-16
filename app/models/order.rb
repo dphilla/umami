@@ -2,7 +2,9 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
   has_many :items, through: :order_items
-
+  
+  validates :user, presence: true
+  # validates :items, presence: true
   enum status: [:ordered, :paid, :cancelled, :completed]
 
   def total_price
