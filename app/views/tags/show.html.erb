@@ -1,4 +1,4 @@
-<h4>Our Selection of items with the tag <strong><%= @tag.name.capitalize %></strong></h4>
+<h4>Our Selection of items with the tag <strong><%= @tag.name.titleize %></strong></h4>
 <div class="row">
   <% @tag.items.each do |item| %>
   <div class="col m4">

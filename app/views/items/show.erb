@@ -6,7 +6,7 @@
     <div class="card">
       <div class="card-image">
         <%= image_tag @item.image %>
-        <span class="card-title black"><%= @item.name %></span>
+        <span class="card-title black"><%= @item.name.titleize %></span>
         <%= link_to '<i class="material-icons">add_shopping_cart</i>'.html_safe, cart_path(item_id: @item.id), class: "btn-floating halfway-fab waves-effect waves-light top red", method: 'post' %>
       </div>
       <div class="card-content">
@@ -15,7 +15,7 @@
         <p>Tags:</p>
         <% @item.tags.each do |tag| %>
         <div class="chip">
-          <a href="/<%= tag.name %>"><%= tag.name %></a>
+          <a href="/<%= tag.name %>"><%= tag.name.titleize %></a>
           <i class="close material-icons"></i>
         </div>
         <% end %>
