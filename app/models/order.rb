@@ -28,5 +28,9 @@ class Order < ApplicationRecord
     end
     items
   end
+  
+  def total_quantity
+    items.count
+  end
 
 end
