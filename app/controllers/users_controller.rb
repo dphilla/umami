@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:dashboard]
 
   def dashboard
+    if current_admin?
+      redirect_to admin_dashboard_path
+    end
   end
 
   def new

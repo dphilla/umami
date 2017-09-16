@@ -6,7 +6,23 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order = current_user.orders.find_by(id: params[:id])
+    unless @order
+      render file: "/public/404"
+    end
+  end
+
+  def create
+    order = current_user.orders.create
+    items = []
+    @cart.contents.each do |k, v|
+      v.times do
+        items << Item.find(k.to_i)
+      end
+    end
+    items
+    session.delete(:cart)
+    redirect_to orders_path
   end
 
 end

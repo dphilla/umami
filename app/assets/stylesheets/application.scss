@@ -39,6 +39,23 @@ nav {
   background-color: rgba(220,220,220, 0.2) !important;
 }
 
+a {
+  color: black;
+  text-decoration: underline;
+  
+}
+
+a:visited {
+  color: lightblue;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+label {
+  font-size: 1.5em;
+}
 .notice {
   color: rgb(150, 50, 50);
 }
@@ -56,6 +73,7 @@ nav {
 }
 
 #cart {
+  color: white;
   font-size: 36px;
 }
 

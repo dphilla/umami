@@ -20,7 +20,7 @@
     <tr>
       <td><%= link_to "Remove", cart_path(item_id: item.id), class: "waves-effect waves-light btn",  method: 'delete' %></td>
       <td><%= image_tag item.image, width: '75px' %></td>
-      <td><%= link_to item.name, item_path(item) %></td>
+      <td><%= link_to item.name.titleize, item_path(item) %></td>
       <td><%= truncate(item.description) %></td>
       <td><%= link_to '<i class="material-icons">remove</i>'.html_safe, cart_path(@cart, button: {item_id: item.id, do: "subtract"}), method: 'patch' %> <%= @cart.count_of(item.id) %> <%= link_to '<i class="material-icons">add</i>'.html_safe, cart_path(@cart, button: {item_id: item.id, do: "add"}), method: 'patch' %></td>
       <td><%= item.to_money %></td>
@@ -35,12 +35,12 @@
       <td></td>
       <td></td>
       <td></td>
-      <td> <% if current_user %>
-              <%#= link_to 'Checkout', some_path(@cart, current_user) %>
+      <td>Order Total: <%= @cart.total_cost %> </td>
+      <td><% if current_user %>
+              <%= link_to 'Checkout', orders_path, class: "waves-effect waves-light btn", method: 'post' %>
             <% else %>
               <%= link_to 'Login or Create Account to Checkout', login_path %>
             <% end %></td>
-      <td>Order Total: <%= @cart.total_cost %></td>
     </tr>
   </tbody>
 </table>
