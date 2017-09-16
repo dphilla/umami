@@ -23,6 +23,19 @@ RSpec.describe Order, type: :model do
         order.paid!
         expect(order.status).to eq('paid')
       end
+      
+      it "can change status again" do
+        user = create(:user)
+        order = create(:order, user: user)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:user)
+                
+        expect(order.status).to eq('ordered')
+        order.paid!
+        expect(order.status).to eq('paid')
+        order.completed!
+        expect(order.status).to eq('completed')
+
+      end
 
     end
 end
