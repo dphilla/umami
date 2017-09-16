@@ -18,27 +18,27 @@ items.each do |row|
   Item.create!(row)
 end
 
- Tag.create(name: "Infused")
- Tag.create(name: "Black")
- Tag.create(name: "Red")
- Tag.create(name: "Pink")
- Tag.create(name: "Flake")
- Tag.create(name: "Coarse")
- Tag.create(name: "Fine")
- Tag.create(name: "accessories")
- Tag.create(name: "salt")
+ Tag.create!(name: "Infused")
+ Tag.create!(name: "Black")
+ Tag.create!(name: "Red")
+ Tag.create!(name: "Pink")
+ Tag.create!(name: "Flake")
+ Tag.create!(name: "Coarse")
+ Tag.create!(name: "Fine")
+ Tag.create!(name: "accessories")
+ Tag.create!(name: "salt")
  20.times do
-  Tag.create(name: Faker::Address.unique.country)
+  Tag.create!(name: Faker::Address.unique.country)
  end
 
  10.times do
-   User.create(name: Faker::Name.name, address: Faker::Address.street_address, email: Faker::Internet.email, password: "123")
+   User.create!(name: Faker::Name.unique.name, address: Faker::Address.street_address, email: Faker::Internet.email, password: "123")
  end
 
  user_collection = User.all
 
  10.times do
-   Order.create(user_id: user_collection.sample.id)
+   Order.create!(user_id: user_collection.sample.id)
  end
 
  tag_collection = Tag.all
