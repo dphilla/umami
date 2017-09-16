@@ -16,7 +16,7 @@ feature "User" do
     context 'logged in' do
       scenario 'sees checkout button' do
         user = create(:user)
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:user)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
         
         visit cart_path
         
