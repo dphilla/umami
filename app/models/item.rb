@@ -4,10 +4,8 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :orders, through: :order_items
 
-  validates :name, uniqueness: true, presence: true
-  # validates :description, presence: true, uniqueness: true
-  validates :price, presence: true
-  
+  validates_presence_of :name, :description, :price, message: "%{attribute} can not be blank"
+  validates_uniqueness_of :name, :description, message: "Item with %{attribute} %{value} already exists"
 
   enum status: [:Active, :Retired]
 

@@ -73,9 +73,9 @@ RSpec.feature "admin can create an item" do
     within("p") do
       click_on("Create")
     end
-
+    save_and_open_page
     expect(current_path).to eq(new_admin_item_path)
-    expect(page).to have_content("No fields can be empty")
+    expect(page).to have_content("name cannot be empty")
   end
 
   scenario "without tag" do
@@ -132,7 +132,7 @@ RSpec.feature "admin can create an item" do
     end
 
     expect(current_path).to eq new_admin_item_path
-    expect(page).to have_content("Item with that name already exists")
+    expect(page).to have_content("Item with name Saltysalt already exists")
   end
 
   scenario "without unique description" do
@@ -162,7 +162,7 @@ RSpec.feature "admin can create an item" do
     end
 
     expect(current_path).to eq(new_admin_item_path)
-    expect(page).to have_content("Item with that description already exists")
+    expect(page).to have_content("Item with description Saltysalt already exists")
   end
 
   scenario "without image" do
