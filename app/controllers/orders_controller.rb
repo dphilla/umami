@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def create
     order = current_user.orders.create
-    order.items << get_order_items
+    order.items << order.get_order_items
     session.delete(:cart)
     redirect_to orders_path
   end
