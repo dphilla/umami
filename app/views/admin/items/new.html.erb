@@ -1,0 +1,13 @@
+<%= form_for([:admin, @item]) do |f| %>
+  <%= f.text_field :name, placeholder: "Name" %>
+  <%= f.number_field :price, placeholder: "Price" %>
+  <%= f.text_field :image, placeholder: "Image" %>
+  <%= f.text_area :description %>
+  <%= hidden_field_tag "item[tag_ids][]", nil %>
+  <% Tag.all.each do |tag| %>
+    <%= check_box_tag "item[tag_ids][]", tag.id, @item.tags.include?(tag.id), id: dom_id(tag) %>
+    <%= label_tag dom_id(tag), tag.name %><br>
+  <% end %>
+
+  <p><%= f.submit %></p>
+<% end %>

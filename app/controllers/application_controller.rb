@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :require_user,
                 :current_user,
-                :find_quantity
+                :find_quantity,
+                :current_admin?
 
   def require_user
     unless current_user
@@ -12,7 +13,7 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
-  
+
   def current_admin?
     current_user && current_user.admin?
   end
