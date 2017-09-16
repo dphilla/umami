@@ -1,6 +1,10 @@
 class Admin::ItemsController < Admin::BaseController
   before_action :require_admin
 
+  def index
+    @items = Item.order(:status)
+  end
+
   def new
     @item = Item.new
   end
@@ -28,6 +32,10 @@ class Admin::ItemsController < Admin::BaseController
         redirect_to new_admin_item_path
       end
     end
+  end
+
+  def edit
+
   end
 
   private
