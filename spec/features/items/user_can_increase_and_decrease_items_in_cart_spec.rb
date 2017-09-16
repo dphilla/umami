@@ -15,7 +15,8 @@ feature "User adds items to cart" do
       expect(page).to have_content(Money.new(item1.price, "USD"))
       expect(page).to_not have_content(times2)
       expect(page).to have_content("1")
-      expect(page).to_not have_content("2")
+      # expect(page).to_not have_content("2")
+      expect(find('tr', text: 'Item Price')).to_not have_content('2')
 
       click_on("add")
       expect(page).to have_content(times2)
@@ -34,7 +35,8 @@ feature "User adds items to cart" do
       expect(page).to have_content(Money.new(item1.price, "USD"))
       expect(page).to_not have_content(times2)
       expect(page).to have_content("1")
-      expect(page).to_not have_content("2")
+      # expect(page).to_not have_content("2")
+      expect(find('tr', text: 'Item Price')).to_not have_content('2')
 
       click_on("add")
       expect(page).to have_content(times2)
