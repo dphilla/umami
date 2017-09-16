@@ -5,9 +5,9 @@ class Admin::BaseController < ApplicationController
     render file: '/public/404' unless current_admin?
   end
 
-  def dashboard
-    @orders = Order.all
-    @users = User.all
-    @items = Item.all
-  end
+  # def dashboard
+  #   @orders = Order.all
+  #   @users = User.all
+  #   @items = Item.all
+  # end
 end
