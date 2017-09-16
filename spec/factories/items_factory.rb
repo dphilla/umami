@@ -6,6 +6,8 @@ FactoryGirl.define do
     sequence :name do |i|
       "Sel#{i}"
     end
-    description "insert lorem here"
+    sequence :description do |i|
+      "#{i}insert lorem here"
+    end
   end
 end
