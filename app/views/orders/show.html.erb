@@ -1,4 +1,4 @@
-<h5>Order for <%= current_user.name %> at <%= @order.created_at %></h5>
+<h5>Order for <%= current_user.name %> at <%= @order.created_at.strftime('%m-%d-%Y') %></h5>
 
 <div class="row">
  <div class="col s12 m12">
@@ -35,7 +35,9 @@
       <td></td>
       <td></td>
       <td>Order Status: <%= @order.status %></td>
-      <td></td>
+      <td><% if @order.completed? || @order.cancelled? %>
+      <%= @order.updated_at.strftime('%a %b %e %Y %H:%M') %>
+    <% end %></td>
       <td>Order Total: <%= @order.total_price %></td>
     </tr>
   </tbody>
