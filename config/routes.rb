@@ -7,11 +7,12 @@ Rails.application.routes.draw do
  resources :orders, only: [:index, :show, :create]
 
  namespace :admin do
-   resources :users, only: [:dashboard]
+   resources :tags
    resources :items
    resources :orders #we may take some routes out once it's more clear what we need.
  end
 
+ get 'admin/dashboard' => 'admin/base#dashboard'
  get "/dashboard" => "users#dashboard"
  get "/login" => "sessions#new"
  post "/login" => "sessions#create"

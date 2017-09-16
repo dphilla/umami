@@ -7,17 +7,13 @@
       <div class="card-content white-text">
         <span class="card-title">Create An Account</span>
         <%= form_for(@user) do |f| %>
-        <a><%= f.label :name %></a>
-        <a><%= f.text_field :name %></a>
+        <a><%= f.text_field :name, placeholder: 'Name' %></a>
 
-        <a><%= f.label :email %></a>
-        <a><%= f.text_field :email %></a>
+        <a><%= f.text_field :email, placeholder: 'Email' %></a>
 
-        <a><%= f.label :address %></a>
-        <a><%= f.text_field :address %></a>
+        <a><%= f.text_field :address, placeholder: 'Address' %></a>
 
-        <a><%= f.label :password %></a>
-        <a><%= f.password_field :password %></a>
+        <a><%= f.password_field :password, placeholder: 'Password' %></a>
 
         <a class="waves-effect waves-light btn teal darken-4"><%= f.submit("Create") %></a>
         <% end %>

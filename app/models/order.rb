@@ -18,5 +18,9 @@ class Order < ApplicationRecord
   def get_item_total(item_id)
     "$#{Money.new((get_quantity(item_id) * items.find(item_id).price))}"
   end
+  
+  def total_quantity
+    items.count
+  end
 
 end
