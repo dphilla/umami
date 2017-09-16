@@ -15,8 +15,8 @@ RSpec.feature "user can see all orders" do
 
     click_on("Orders")
     
-    expect(page).to have_content(order1.created_at)
-    expect(page).to have_content(order2.created_at)
+    expect(page).to have_content(order1.created_at.strftime('%a %b %e %Y %H:%M'))
+    expect(page).to have_content(order2.created_at.strftime('%a %b %e %Y %H:%M'))
     expect(page).to_not have_content(order3)
   end
 

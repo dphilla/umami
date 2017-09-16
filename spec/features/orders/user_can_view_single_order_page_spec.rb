@@ -18,15 +18,15 @@ RSpec.feature "user can view single order" do
     order.items << item2
     visit orders_path
 
-    click_on order.created_at
-save_and_open_page
+    click_on order.created_at.strftime('%a %b %e %Y %H:%M')
+
     expect(current_path).to eq(order_path(order))
     expect(page).to have_content(item.name)
     expect(page).to have_content(item.description)
     expect(page).to have_content(item.to_money)
     expect(page).to have_content(order.status)
     expect(page).to have_content(item.description)
-    expect(page).to have_content(order.created_at)
+    expect(page).to have_content(order.created_at.strftime('%a %b %e %Y %H:%M'))
     expect(page).to have_content(order.total_price)
   end
 end
