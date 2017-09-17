@@ -4,8 +4,8 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :orders, through: :order_items
 
-  validates :name, presence: true # I still thing we need uniqueness for this and description
-  validates :description, presence: true
+  validates :name, presence: true, uniqueness: true # I still thing we need uniqueness for this and description
+  validates :description, presence: true, uniqueness: true
   validates :price, presence: true
   validates :tags, presence: true
   before_save :set_image
