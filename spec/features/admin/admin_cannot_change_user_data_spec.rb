@@ -7,6 +7,6 @@ feature 'Admin' do
     
     visit dashboard_path
     
-    expect(page).to have_content()
+    expect(page).to have_content('Admin Dashboard')
   end
 end
