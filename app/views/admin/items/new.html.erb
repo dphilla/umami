@@ -1,4 +1,14 @@
 <%= form_for([:admin, @item]) do |f| %>
+  <% if @item.errors.any? %>
+    <h2><%= pluralize(@item.errors.count, "error") %> prohibited this record from being saved:</h2>
+    <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
   <%= f.text_field :name, placeholder: "Name" %>
   <%= f.number_field :price, placeholder: "Price" %>
   <%= f.text_field :image, placeholder: "Image" %>
