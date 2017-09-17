@@ -43,7 +43,7 @@ RSpec.describe Order, type: :model do
       user = create(:user)
       order = create(:order, user: user)
       item_list = create_list(:item, 3)
-      
+      # tag.items << item_list
       order.items << item_list
       expect(order.total_price).to eq('$0.15')
     end
