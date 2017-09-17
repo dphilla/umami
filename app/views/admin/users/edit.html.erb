@@ -1,0 +1,35 @@
+<h3>Edit Admin information</h3>
+
+<div class="row">
+  <div class="col m2">
+
+  </div>
+  <div class="col m8 account-create-card">
+    <div class="card grey darken-1 large">
+      <div class="card-content white-text">
+        <span class="card-title">Edit Your Account</span>
+        <%= form_for([:admin, current_user]) do |f| %>
+        <% if current_user.errors.any? %>
+        <h3><%= pluralize(current_user.errors.count, "error") %> prohibited this record from being saved:</h3>
+        <ul>
+          <% current_user.errors.full_messages.each do |message| %>
+          <li>
+            <%= message %>
+          </li>
+          <% end %>
+        </ul>
+        <% end %>
+        <%= f.text_field :name, placeholder: 'Name' %>
+
+        <%= f.text_field :email, placeholder: 'Email' %>
+
+        <%= f.text_field :address, placeholder: 'Address' %>
+        
+        <%= f.password_field :password, placeholder: 'Password' %>
+
+        <a class="waves-effect waves-light btn teal darken-4"><%= f.submit("Update") %></a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

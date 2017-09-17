@@ -6,7 +6,11 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find_by(name: params[:name])
-    #@items = @tag.items
+    if @tag.nil?
+      render file: '/public/404'
+    else
+      render :show
+    end
   end
 
 end

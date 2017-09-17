@@ -21,10 +21,6 @@ class Admin::ItemsController < Admin::BaseController
     end
   end
 
-  def edit
-
-  end
-
   private
 
   def item_params
