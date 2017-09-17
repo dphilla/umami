@@ -9,5 +9,8 @@ FactoryGirl.define do
     sequence :description do |i|
       "#{i}insert lorem here"
     end
+    after(:build) do |i|
+      i.tags << FactoryGirl.create(:tag)
+    end
   end
 end

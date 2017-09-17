@@ -12,8 +12,9 @@ class Admin::ItemsController < Admin::BaseController
 
   def create
     @item = Item.new(item_params)
+    @tags = Tag.all
     if @item.save
-      flash[:notice] = "#{@item.name} Created"
+      flash[:notice] = "#{@item.name} Created."
       redirect_to item_path(@item)
     else
       render :new
