@@ -15,8 +15,8 @@
   <%= f.text_area :description, placeholder: "Description" %>
   <%= hidden_field_tag "item[tag_ids][]", nil %>
   <% @tags.each do |tag| %>
-    <%= check_box_tag "item[tag_ids][]", tag.id, @item.tags.include?(tag.id), id: dom_id(tag) %>
-    <%= label_tag dom_id(tag), tag.name %><br>
+  <%= check_box_tag "item[tag_ids][]", tag.id, @item.tags.include?(tag.id), id: dom_id(tag) %>
+    <%= label_tag dom_id(tag), tag.name, id: 'checkbox' %><br>
   <% end %>
 
   <p><%= f.submit %></p>
