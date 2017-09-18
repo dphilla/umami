@@ -17,21 +17,5 @@ feature "As an admin user" do
       expect(page).to_not have_content(order1)
       expect(page).to have_content(user.name)
     end
-    
-    scenario 'can change status to paid' do
-      admin = create(:user, role: 1)
-      user = create(:user)
-      user2 = create(:user)
-      order1, order2 = create_list(:order, 2, user: user)
-      order3 = create(:order, user: user2, status: "paid")
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-      visit admin_dashboard_path
-
-      first(:link, 'mark as paid').click
-
-      expect(order1.status).to eq('paid')
-    end
   end
 end
-# I can click on “mark as paid” on orders that are “ordered”
-# I can click on “mark as completed” on orders that are “paid”
