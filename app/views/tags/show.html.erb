@@ -6,7 +6,11 @@
       <div class="card-image waves-effect waves-block waves-light">
         <%= image_tag item.image, class: "activator", id: "card-image" %>
       </div>
+      <% if item.active? %>
         <%= link_to '<i class="material-icons" >add_shopping_cart</i>'.html_safe, cart_path(item_id: item.id), class: "btn-floating fab waves-effect waves-light right red add-cart", method: 'post' %>
+        <% else %>
+        Sorry, this item has been retired.
+        <% end %>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"><%= link_to item.name.capitalize, item_path(item) %><br><%= item.to_money %></span>
       </div>

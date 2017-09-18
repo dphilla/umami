@@ -3,15 +3,14 @@
 
   </div>
   <div class="col m10">
-    <div class="card">
-      <!-- <div class="card-content"> -->
-        <div class="responsive-table centered">
-            
+    <div class="card-panel grey darken-1">
+        <div>
+
           <p><%= @order.user.name %></p>
           <p><%= @order.user.address %></p>
           <p><%= @order.created_at.strftime('%a %b %e %Y %H:%M') %></p><br>
           <p>Status: <%= @order.status %></p><br>
-          <table>
+          <table class="responsive-table centered bordered">
               <thead>
                 <tr>
                   <th>Item Name</th>
@@ -24,7 +23,7 @@
             <tbody>
               <tr>
                 <td><%= link_to item.name.titleize, item_path(item) %></td>
-                <td><%= item.price %></td>
+                <td><%= item.to_money %></td>
                 <td><%= @order.get_quantity(item.id) %></td>
                 <td><%= @order.get_item_total(item.id) %></td>
               </tr>
@@ -32,7 +31,15 @@
           <% end %>
         </table>
       </div>
-      <!-- </div> -->
+      <% if @order.paid? || @order.ordered? %>
+      <%= link_to("cancel order", admin_order_path(@order, status: "cancelled"), method: :patch, class: "order#{@order.id} waves-effect waves-light btn teal darken-4") %>
+      <% end %>
+      <% if @order.ordered? %>
+      <%= link_to("mark as paid", admin_order_path(@order, status: "paid"), method: :patch, class: "order#{@order.id} waves-effect waves-light btn teal darken-4") %>
+      <% end %>
+      <% if @order.paid? %>
+      <%= link_to("mark as completed", admin_order_path(@order, status: "completed"), method: :patch, class: "order#{@order.id} waves-effect waves-light btn teal darken-4") %>
+      <% end %>
     </div>
   </div>
 </div>

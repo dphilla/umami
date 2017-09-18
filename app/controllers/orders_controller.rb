@@ -13,14 +13,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = current_user.orders.create
     items = []
     @cart.contents.each do |k, v|
       v.times do
         items << Item.find(k.to_i)
       end
     end
-    items
+    order = current_user.orders.create
+    order.items << items
     session.delete(:cart)
     redirect_to orders_path
   end

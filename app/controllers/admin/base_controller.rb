@@ -5,4 +5,11 @@ class Admin::BaseController < ApplicationController
     render file: '/public/404' unless current_admin?
   end
 
+  def dashboard
+    if params[:status].nil?
+      @orders = Order.all
+    else
+      @orders = Order.where(status: params[:status])
+    end
+  end
 end

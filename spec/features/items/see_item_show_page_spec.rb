@@ -10,7 +10,7 @@ feature "A user visits the item index" do
       click_on(item.name)
 
       expect(page).to have_content(item.description)
-      expect(page).to have_content(item.status)
+      expect(page).to have_content(item.status.titleize)
     end
   end
 end

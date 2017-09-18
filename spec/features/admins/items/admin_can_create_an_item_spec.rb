@@ -77,34 +77,7 @@ RSpec.feature "admin can create an item" do
     expect(current_path).to eq(admin_items_path)
     expect(page).to have_content("Name can't be blank")
   end
-
-  scenario "without tag" do
-    admin = create(:user, role: 1)
-    visit root_path
-    click_on("Login")
-    fill_in "user[name]", with: admin.name
-    fill_in "user[password]", with: "Password"
-    click_on("Log in")
-    tag = create(:tag)
-    item = build(:item)
-
-    expect(page).to have_content("Create New Item")
-
-    click_on("Create New Item")
-
-    expect(current_path).to eq new_admin_item_path
-
-    fill_in "item[description]", with: item.description
-    fill_in "item[price]", with: item.price
-    fill_in "item[image]", with: item.image
-    within("p") do
-      click_on("Create")
-    end
-
-    expect(current_path).to eq(admin_items_path)
-    expect(page).to have_content("Tags can't be blank")
-  end
-
+  
   scenario "without unique name" do
     admin = create(:user, role: 1)
     visit root_path
