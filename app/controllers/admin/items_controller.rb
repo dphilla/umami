@@ -21,6 +21,22 @@ class Admin::ItemsController < Admin::BaseController
     end
   end
 
+
+  def edit
+     @item = Item.find(params[:id])
+     @tags = Tag.all
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      flash[:notice] = "#{@item.name} updated."
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_params
