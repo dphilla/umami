@@ -7,35 +7,34 @@ class Admin::ItemsController < Admin::BaseController
 
   def new
     @item = Item.new
+    @tags = Tag.all
   end
 
   def create
-    if params[:item][:image].empty?
-      params[:item][:image] = "http://img.providr.com/n-SALT-628x314.jpg"
-    end
-    if Item.find_by(name: params[:item][:name])
-      flash[:notice] = "Item with that name already exists"
-      redirect_to new_admin_item_path
-    elsif Item.find_by(description: params[:item][:description])
-      flash[:notice] = "Item with that description already exists"
-      redirect_to new_admin_item_path
-    elsif params[:item][:tag_ids].count == 1
-      flash[:notice] = "Item must have at least one tag"
-      redirect_to new_admin_item_path
+    @item = Item.new(item_params)
+    @tags = Tag.all
+    if @item.save
+      flash[:notice] = "#{@item.name} Created."
+      redirect_to item_path(@item)
     else
-      @item = Item.new(item_params)
-      if @item.save
-        flash[:notice] = "#{@item.name} Created"
-        redirect_to item_path(@item)
-      else
-        flash[:notice] = "No fields can be empty"
-        redirect_to new_admin_item_path
-      end
+      render :new
     end
   end
 
-  def edit
 
+  def edit
+     @item = Item.find(params[:id])
+     @tags = Tag.all
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      flash[:notice] = "#{@item.name} updated."
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
   end
 
   private

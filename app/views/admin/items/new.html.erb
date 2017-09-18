@@ -1,13 +1,27 @@
 <%= form_for([:admin, @item]) do |f| %>
+  <% if @item.errors.any? %>
+  <h3><%= pluralize(@item.errors.count, "error") %> prohibited this record from being saved:</h3>
+  <ul>
+    <% @item.errors.full_messages.each do |message| %>
+    <li>
+      <%= message %>
+    </li>
+    <% end %>
+  </ul>
+  <% end %>
   <%= f.text_field :name, placeholder: "Name" %>
   <%= f.number_field :price, placeholder: "Price" %>
   <%= f.text_field :image, placeholder: "Image" %>
   <%= f.text_area :description, placeholder: "Description" %>
   <%= hidden_field_tag "item[tag_ids][]", nil %>
-  <% Tag.all.each do |tag| %>
-    <%= check_box_tag "item[tag_ids][]", tag.id, @item.tags.include?(tag.id), id: dom_id(tag) %>
-    <%= label_tag dom_id(tag), tag.name %><br>
+  <% @tags.each do |tag| %>
+  <%= check_box_tag "item[tag_ids][]", tag.id, @item.tags.include?(tag.id), id: dom_id(tag) %>
+    <%= label_tag dom_id(tag), tag.name, id: 'checkbox' %><br>
   <% end %>
 
   <p><%= f.submit %></p>
 <% end %>
+
+
+
+

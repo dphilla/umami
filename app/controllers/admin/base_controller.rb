@@ -17,7 +17,5 @@ class Admin::BaseController < ApplicationController
     elsif params[:status] == "completed"
       @orders = Order.completed
     end
-    # @users = User.all
-    # @items = Item.all
   end
 end
