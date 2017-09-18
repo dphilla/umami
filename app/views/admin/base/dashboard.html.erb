@@ -38,13 +38,13 @@
         <td><%= order.total_price %></td>
         <td><%= order.status %></td>
         <td><% if order.paid? || order.ordered? %>
-          <%= link_to("cancel order", admin_order_path(order, status: "cancelled"), method: :patch) %><br>
+          <%= link_to("cancel order", admin_order_path(order, status: "cancelled"), method: :patch, class: "order#{order.id}") %><br>
         <% end %>
         <% if order.ordered? %>
-          <%= link_to("mark as paid", admin_order_path(order, status: "paid"), method: :patch) %><br>
+          <%= link_to("mark as paid", admin_order_path(order, status: "paid"), method: :patch, class: "order#{order.id}") %><br>
         <% end %>
         <% if order.paid? %>
-            <%= link_to("mark as completed", admin_order_path(order, status: "completed"), method: :patch) %>
+            <%= link_to("mark as completed", admin_order_path(order, status: "completed"), method: :patch, class: "order#{order.id}") %>
         <% end %>
       </td>
       </tr>
