@@ -3,6 +3,7 @@
     <div class="card-panel grey darken-1">
 
       <h1>Admin Dashboard</h1>
+      <%= link_to "View All Items", admin_items_path %>
       <p>Filter orders by:</p>
       <%= link_to "Ordered", admin_dashboard_path(status: "ordered") %>
       <%= link_to "Paid", admin_dashboard_path(status: "paid") %>
@@ -57,7 +58,6 @@
         </table>
         <% end %>
       </div>
-      <%= link_to "View All Items", admin_items_path %>
     </div>
   </div>
 </div>
