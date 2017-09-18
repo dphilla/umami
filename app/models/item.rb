@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true, uniqueness: true
   validates :price, presence: true
+  validates :tags, presence: true
   
   before_save :set_image
 
