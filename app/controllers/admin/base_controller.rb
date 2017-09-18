@@ -8,14 +8,8 @@ class Admin::BaseController < ApplicationController
   def dashboard
     if params[:status].nil?
       @orders = Order.all
-    elsif params[:status] == "ordered"
-      @orders = Order.ordered
-    elsif params[:status] == "paid"
-      @orders = Order.paid
-    elsif params[:status] == "cancelled"
-      @orders = Order.cancelled
-    elsif params[:status] == "completed"
-      @orders = Order.completed
+    else
+      @orders = Order.where(status: params[:status])
     end
   end
 end
