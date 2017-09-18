@@ -20,7 +20,7 @@
 
   <% @tags.each do |tag| %>
   <div class="col m2">
-  <%= check_box_tag "item[tag_ids][]", tag.id, @item.tags.include?(tag.id), id: dom_id(tag) %>
+  <%= check_box_tag "item[tag_ids][]", tag.id, @item.tags.ids.include?(tag.id), id: dom_id(tag) %>
     <%= label_tag dom_id(tag), tag.name, id: 'checkbox' %><br>
     </div>
   <% end %>
