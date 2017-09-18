@@ -33,6 +33,7 @@ class Admin::ItemsController < Admin::BaseController
       flash[:notice] = "#{@item.name} updated."
       redirect_to item_path(@item)
     else
+      @tags = Tag.all
       render :edit
     end
   end

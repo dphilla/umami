@@ -9,7 +9,7 @@ feature 'Admin' do
       order.items = create_list(:item, 5)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-      
+
       visit admin_order_path(order)
 
       expect(page).to have_content(order.created_at.strftime('%a %b %e %Y %H:%M'))
@@ -17,7 +17,7 @@ feature 'Admin' do
       expect(page).to have_content(order.user.address)
       expect(page).to have_content(order.get_quantity(order.items.first.id))
       expect(page).to have_content(order.get_item_total(order.items.first.id))
-      expect(page).to have_content(order.items.first.price)
+      expect(page).to have_content(order.items.first.to_money)
       expect(page).to have_content(order.status)
     end
   end
