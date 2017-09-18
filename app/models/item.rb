@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   validates :description, presence: true, uniqueness: true
   validates :price, presence: true
   validates :tags, presence: true
+  
   before_save :set_image
 
   enum status: [:active, :retired]
