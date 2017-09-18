@@ -36,7 +36,5 @@ RSpec.feature "admin can go to edit an item" do
     expect(current_path).to eq(item_path(Item.find_by(name: item.name)))
     expect(page).to have_content("#{item.name} updated")
     expect(page).to have_content(tag.name.titleize)
-
-
   end
 end
