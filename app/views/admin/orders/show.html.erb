@@ -4,30 +4,29 @@
   </div>
   <div class="col m10">
     <div class="card-panel grey darken-1">
-        <div>
-
-          <p><%= @order.user.name %></p>
-          <p><%= @order.user.address %></p>
-          <p><%= @order.created_at.strftime('%a %b %e %Y %H:%M') %></p><br>
-          <p>Status: <%= @order.status %></p><br>
-          <table class="responsive-table centered bordered">
-              <thead>
-                <tr>
-                  <th>Item Name</th>
-                  <th>Item Price</th>
-                  <th>Order Item Quantity</th>
-                  <th>Item Subtotal</th>
-                </tr>
-              </thead>
+      <div>
+        <p><%= @order.user.name %></p>
+        <p><%= @order.user.address %></p>
+        <p><%= @order.created_at.strftime('%a %b %e %Y %H:%M') %></p><br>
+        <p>Status: <%= @order.status %></p><br>
+        <table class="responsive-table centered bordered">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Item Price</th>
+              <th>Order Item Quantity</th>
+              <th>Item Subtotal</th>
+            </tr>
+          </thead>
           <% @order.items.each do |item| %>
-            <tbody>
-              <tr>
-                <td><%= link_to item.name.titleize, item_path(item) %></td>
-                <td><%= item.to_money %></td>
-                <td><%= @order.get_quantity(item.id) %></td>
-                <td><%= @order.get_item_total(item.id) %></td>
-              </tr>
-            </tbody>
+          <tbody>
+            <tr>
+              <td><%= link_to item.name.titleize, item_path(item) %></td>
+              <td><%= item.to_money %></td>
+              <td><%= @order.get_quantity(item.id) %></td>
+              <td><%= @order.get_item_total(item.id) %></td>
+            </tr>
+          </tbody>
           <% end %>
         </table>
       </div>
