@@ -4,7 +4,12 @@
     <div class="card grey darken-1 large">
       <div class="card-content white-text">
         <div><%= current_user.name %></div>
+        <div><%= current_user.email %></div>
         <div><%= current_user.address %></div>
+        <div><a class="waves-effect waves-light btn-large">Edit Information</a></div>
+        <div><%= link_to "Orders", orders_path, class: "waves-effect waves-light btn-large" %></div>
+        <div><%= link_to "Items", items_path, class: "waves-effect waves-light btn-large" %></div>
+        <div><%= link_to "Tags", tags_path, class: "waves-effect waves-light btn-large" %></div>
       </div>
     </div>
   </div>
