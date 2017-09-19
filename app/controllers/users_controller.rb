@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   def dashboard
     if current_admin?
       redirect_to admin_dashboard_path
+    else
+      @popular_items = Item.by_popularity.limit(10)
+      @relevant_items = Item.by_relevancy.limit(10)
     end
   end
 

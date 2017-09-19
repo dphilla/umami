@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   validates :description, presence: true, uniqueness: true
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :tags, presence: true
-  
+
   before_save :set_image
 
   enum status: [:active, :retired]
@@ -21,6 +21,14 @@ class Item < ApplicationRecord
     if self[:image].empty?
       self[:image] = "http://img.providr.com/n-SALT-628x314.jpg"
     end
+  end
+
+  def self.by_popularity
+    select('items.*, count(order_items.id) as order_items_count').joins(:order_items).group(:id).order('order_items_count DESC')
+  end
+
+  def self.by_relevancy
+    by_popularity.joins(:tags).where()
   end
 
 end

@@ -13,4 +13,26 @@
       </div>
     </div>
   </div>
+
+  <div class="col m9 left-floater">
+    <div align="center">Popular Items:</div>
+    <div class="carousel">
+      <% @popular_items.each do |item| %>
+        <%= link_to item_path(item), class: "carousel-item" do %>
+          <span><%= item.name %></span>
+          <%= image_tag item.image %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div align="center">Suggested Items:</div>
+    <div class="carousel">
+      <% @relevant_items.each do |item| %>
+        <%= link_to item_path(item), class: "carousel-item" do %>
+          <span><%= item.name %></span>
+          <%= image_tag item.image %>
+        <% end %>
+      <% end %>
+    </div>
+
 </div>
