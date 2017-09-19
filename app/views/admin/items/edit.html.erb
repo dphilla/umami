@@ -1,6 +1,6 @@
 <h1>Edit</h1>
 
-<%= form_for([:admin, @item]) do |f| %>
+<%= form_for([:admin, @item], method: 'patch') do |f| %>
   <% if @item.errors.any? %>
   <h3><%= pluralize(@item.errors.count, "error") %> prohibited this record from being saved:</h3>
   <ul>
@@ -15,16 +15,14 @@
   <%= f.number_field :price, placeholder: "Price" %>
   <%= f.text_field :image, placeholder: "Image" %>
   <%= f.text_area :description, placeholder: "Description" %>
+  <div class="row">
   <%= hidden_field_tag "item[tag_ids][]", nil %>
   <% @tags.each do |tag| %>
-  <%= check_box_tag "item[tag_ids][]", tag.id, @item.tags.include?(tag.id), id: dom_id(tag) %>
+  <div class="col m3">
+  <%= check_box_tag "item[tag_ids][]", tag.id, @item.tags.include?(tag), id: dom_id(tag) %>
     <%= label_tag dom_id(tag), tag.name, id: 'checkbox' %><br>
+  </div>
   <% end %>
-
+  </div>
   <p><%= f.submit %></p>
 <% end %>
-
-
-
-
-
