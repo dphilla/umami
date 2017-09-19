@@ -1,7 +1,7 @@
 require_relative 'application'
 ActionMailer::Base.smtp_settings = {
-  :user_name => 'aram.j.anderson',
-  :password => 'C10g10ves0l0!',
+  :user_name => ENV["sendgrid_username"],
+  :password => ENV["sendgrid_password"],
   :domain => 'https://umami-salt.herokuapp.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,
