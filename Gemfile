@@ -35,6 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
  gem 'money-rails'
  gem 'faker'
+ gem "omniauth-google-oauth2", "~> 0.2.1"
  gem 'figaro'
 
 group :development, :test do
