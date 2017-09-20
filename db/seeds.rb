@@ -59,5 +59,3 @@ order_items.each do |order_item|
   order_item.item_price_at_order unless order_item.item_price_record
   order_item.save
 end
-
-
