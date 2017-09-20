@@ -6,7 +6,6 @@ class UsersController < ApplicationController
       redirect_to admin_dashboard_path
     else
       @popular_items = Item.by_popularity.limit(10)
-      @relevant_items = Item.by_relevancy.limit(10)
     end
   end
 
