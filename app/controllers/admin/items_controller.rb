@@ -29,11 +29,11 @@ class Admin::ItemsController < Admin::BaseController
 
   def update
     @item = Item.find(params[:id])
-    @tags = Tag.all
     if @item.update(item_params)
       flash[:notice] = "#{@item.name} updated."
       redirect_to item_path(@item)
     else
+      @tags = Tag.all
       render :edit
     end
   end

@@ -13,6 +13,8 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Logged in as #{@user.name}"
+      UserNotifier.send_signup_email(@user).deliver
+      # redirect_to(@user, :notice => 'User created')
       redirect_to dashboard_path
     else
       flash[:notice] = "All Fields are Required"
