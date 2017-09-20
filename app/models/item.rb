@@ -4,11 +4,12 @@ class Item < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :orders, through: :order_items
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, on: :create
+  validates :name, presence: true, on: :update
   validates :description, presence: true, uniqueness: true
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 0}
   validates :tags, presence: true
-  
+
   before_save :set_image
 
   enum status: [:active, :retired]
@@ -21,6 +22,10 @@ class Item < ApplicationRecord
     if self[:image].empty?
       self[:image] = "http://img.providr.com/n-SALT-628x314.jpg"
     end
+  end
+
+  def price_for_item_at_order
+    "#{Money.new(order_items.first.item_price_record)}"
   end
 
 end
