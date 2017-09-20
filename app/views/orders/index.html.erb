@@ -7,7 +7,7 @@
       <% if @orders.empty? %>
       <div>No orders to show! <%= link_to "Browse", items_path %></div>
       <% end %>
-      
+
       <table class='responsive-table centered bordered'>
         <thead>
           <tr>
@@ -23,13 +23,13 @@
           <tr>
             <td><a><%= link_to order.created_at.strftime('%a %b %e %Y %H:%M'), order_path(order) %></a></td>
             <td><%= order.total_quantity %></td>
-            <td><%= order.total_price %></td>
+            <td><%= order.total_price_when_ordered %></td>
             <td><%= order.status %></td>
           </tr>
         </tbody>
         <% end %>
       </table>
-      
+
     </div>
   </div>
 </div>
