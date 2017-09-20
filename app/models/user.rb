@@ -4,8 +4,6 @@ class User < ApplicationRecord
   validates_uniqueness_of :name, :email
   has_many :orders
   
-  before_save :set_image
-
   enum role: [:default, :admin]
   
   def self.find_or_create_from_auth(auth)
@@ -20,12 +18,6 @@ class User < ApplicationRecord
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save
-    end
-  end
-
-  def set_image
-    if self[:image].empty? 
-      self[:image] = "http://www.diamondrayshk.com/images/default-user.png"
     end
   end
 end

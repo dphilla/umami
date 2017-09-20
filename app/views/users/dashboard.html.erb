@@ -3,12 +3,6 @@
   <div class="col m3">
     <div class="card grey darken-1 large">
       <div class="card-content white-text">
-        <% if !current_user.image.present? %>
-          <div><% current_user.image = "http://www.diamondrayshk.com/images/default-user.png"%>
-                <%= image_tag current_user.image, width: '180em' %></div>
-        <% else %>
-          <div><%= image_tag current_user.image, width: '180em' %></div>
-        <% end %>
         <div><%= current_user.name %></div>
         <div><%= current_user.address %></div>
       </div>
