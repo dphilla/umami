@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.save!
       session[:user_id] = @user.id
       flash[:notice] = "Logged in as #{@user.name}"
       redirect_to dashboard_path
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :address, :password)
+    params.require(:user).permit(:name, :email, :address, :password, :image)
   end
 
 end
