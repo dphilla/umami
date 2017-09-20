@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:dashboard]
 
   def dashboard
+    @popular_items = Item.by_popularity.limit(10)
   end
 
   def new

@@ -13,8 +13,8 @@ RSpec.feature "user can see all orders" do
     order1, order2 = create_list(:order, 2, user: user)
     order3 = create(:order, user: user2)
 
-    click_on("Orders")
-    
+    click_on("Orders", match: :first)
+
     expect(page).to have_content(order1.created_at.strftime('%a %b %e %Y %H:%M'))
     expect(page).to have_content(order2.created_at.strftime('%a %b %e %Y %H:%M'))
     expect(page).to_not have_content(order3)

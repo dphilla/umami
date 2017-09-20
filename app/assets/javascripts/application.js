@@ -15,3 +15,6 @@
 //= require_tree .
 //= require jquery
 //= require materialize-sprockets
+$(document).ready(function(){
+     $('.carousel').carousel();
+   });
