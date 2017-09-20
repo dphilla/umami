@@ -2,11 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:dashboard]
 
   def dashboard
-    if current_admin?
-      redirect_to admin_dashboard_path
-    else
-      @popular_items = Item.by_popularity.limit(10)
-    end
+    @popular_items = Item.by_popularity.limit(10)
   end
 
   def new
