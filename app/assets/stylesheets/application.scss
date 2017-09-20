@@ -42,7 +42,6 @@ nav {
 a {
   color: black;
   text-decoration: underline;
-  
 }
 
 a:hover {
@@ -80,6 +79,10 @@ label {
   width: 20px;
   text-align: center;
   line-height: 21px;
+}
+
+#left-floater {
+  float: left;
 }
 
 .add-cart {
@@ -146,3 +149,4 @@ label {
 .loginBtn--google:focus {
   background: #E74B37;
 }
+
