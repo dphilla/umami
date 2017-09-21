@@ -5,7 +5,7 @@ Rails.application.routes.draw do
  resources :tags,   only: [:index, :show]
  resources :users,  only: [:new, :create]
  resources :orders, only: [:index, :show, :create]
- 
+
  namespace :admin do
    resources :users, only: [:edit, :update]
    resources :tags
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
  patch "/cart"         => "carts#update"
  delete "/cart"        => "carts#destroy"
  get "/:name"          => "tags#show"
- 
+
  get 'auth/:provider/callback', to: 'sessions#create'
  get 'auth/failure', to: redirect('/')
  get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -31,5 +31,5 @@ Rails.application.routes.draw do
  # resources :sessions, only: [:create, :destroy]
  # resource :home, only: [:show]
 
- root to: "sessions#new"
+ root to: "items#index"
 end
